@@ -78,7 +78,7 @@ def sample(model, scheduler, train_config, diffusion_model_config,
             noise_pred = noise_pred_cond
         
         # Use scheduler to get x0 and xt-1
-        xt, x0_pred = scheduler.sample_prev_timestep(xt, noise_pred, torch.as_tensor(i).to(device))
+        xt, x0_pred = scheduler.sample_from_prev_timestep(xt, noise_pred, torch.as_tensor(i).to(device))
 
         ims = xt
         
